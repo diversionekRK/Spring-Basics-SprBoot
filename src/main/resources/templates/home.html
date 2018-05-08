@@ -1,3 +1,4 @@
+<html xmlns:th="http://www.thymeleaf.org">
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,5 +7,19 @@
 </head>
 <body>
 Hello there!
+
+<table>
+    <tr>
+        <td>Name</td>
+        <td>Email</td>
+        <td>Text</td>
+    </tr>
+    <tr th:each="offer : ${offers}">
+        <td th:text="${offer.user.username}"></td>
+        <td th:text="${offer.user.email}"></td>
+        <td th:text="${offer.text}"></td>
+    </tr>
+</table>
+
 </body>
 </html>
