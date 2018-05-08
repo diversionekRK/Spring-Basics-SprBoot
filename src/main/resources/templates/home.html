@@ -4,11 +4,12 @@
 <head>
     <meta charset="UTF-8">
     <title>Home page</title>
+
+    <link th:href="@{css/main.css}" type="text/css" rel="stylesheet"/>
 </head>
 <body>
-Hello there!
 
-<table>
+<table class="offerstable">
     <tr>
         <td>Name</td>
         <td>Email</td>
@@ -20,6 +21,13 @@ Hello there!
         <td th:text="${offer.text}"></td>
     </tr>
 </table>
+
+<div th:if="${hasOffer}">
+    <a th:href="@{/accessdenied}">Edit or delete your offer</a>
+</div>
+<div th:unless="${hasOffer}">
+    <a th:href="@{/accessdenied}">Create a new offer</a>
+</div>
 
 </body>
 </html>

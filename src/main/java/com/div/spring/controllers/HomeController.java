@@ -31,10 +31,15 @@ public class HomeController {
 
         List<Offer> offers = offerService.getOffers();
         for (Offer offer : offers) {
-				log.info(offer.toString());
-			}
+            log.info(offer.toString());
+        }
         model.addAttribute("offers", offers);
 
+        boolean hasOffer = false;
+
+        if (principal != null)
+            hasOffer = offerService.hasOffer(principal.getName());
+        model.addAttribute("hasOffer", hasOffer);
 
         return "home";
     }
