@@ -1,4 +1,4 @@
-package exception;
+package com.div.spring.exception;
 
 import org.springframework.dao.DataAccessException;
 import org.springframework.security.access.AccessDeniedException;

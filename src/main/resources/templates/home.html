@@ -23,10 +23,21 @@
 </table>
 
 <div th:if="${hasOffer}">
-    <a th:href="@{/accessdenied}">Edit or delete your offer</a>
+    <a th:href="@{/createoffer}">Edit or delete your offer</a>
 </div>
 <div th:unless="${hasOffer}">
-    <a th:href="@{/accessdenied}">Create a new offer</a>
+    <a th:href="@{/createoffer}">Create a new offer</a>
+</div>
+
+<div th:if="${#authorization.expression('isAuthenticated()')}">
+    <p><a th:href="@{/logout}">Log out</a></p>
+</div>
+<div th:if="${not #authorization.expression('isAuthenticated()')}">
+    <p><a th:href="@{/login}">Log in</a></p>
+</div>
+
+<div th:if="${#authorization.expression('hasRole(''ROLE_ADMIN'')')}">
+    <p><a th:href="@{/login}">Log in</a></p>
 </div>
 
 </body>

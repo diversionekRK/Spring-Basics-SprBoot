@@ -10,23 +10,9 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 public class SpringbootApplication {
 
-	private static final Logger log = LoggerFactory.getLogger(SpringbootApplication.class);
+    private static final Logger log = LoggerFactory.getLogger(SpringbootApplication.class);
 
-	public static void main(String[] args) {
-		SpringApplication.run(SpringbootApplication.class, args);
-	}
-
-//	@Bean
-//	public CommandLineRunner demo(OfferRepository repository) {
-//		return (args) -> {
-//
-//			// fetch all customers
-//			log.info("Customers found with findAll():");
-//			log.info("-------------------------------");
-//			for (Offer offer : repository.findAll()) {
-//				log.info(offer.toString());
-//			}
-//		};
-//	}
-
+    public static void main(String[] args) {
+        SpringApplication.run(SpringbootApplication.class, args);
+    }
 }

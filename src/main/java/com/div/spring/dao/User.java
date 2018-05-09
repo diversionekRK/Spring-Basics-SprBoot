@@ -1,6 +1,7 @@
 package com.div.spring.dao;
 
 import lombok.Getter;
+import lombok.RequiredArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
@@ -39,6 +40,9 @@ public class User {
 
     private boolean enabled = false;
     private String authority;
+
+    public User() {
+    }
 
     @Override
     public boolean equals(Object o) {

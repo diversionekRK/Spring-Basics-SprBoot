@@ -1,0 +1,29 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Create offer</title>
+</head>
+<body>
+
+<form id="offerForm" th:action="@{/docreate}" method="post" th:object="${offer}">
+    <input type="hidden" th:field="*{id}" />
+    <table class="formtable">
+        <tr>
+            <td class="label">Your offer: </td>
+            <td>
+                <textarea name="text" rows="20" cols="20" id="text" th:field="*{text}"></textarea>
+                <br/>
+                <p th:if="${#fields.hasErrors('text')}" th:errors="*{text}">Incorrect text</p>
+            </td>
+        </tr>
+        <tr>
+            <td class="label"></td>
+            <td><input class="control" value="Save advert" type="submit"/></td>
+        </tr>
+    </table>
+</form>
+
+</body>
+</html>

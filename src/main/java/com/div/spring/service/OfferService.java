@@ -17,9 +17,6 @@ import java.util.List;
 @Service
 public class OfferService {
 
-    private static final Logger log = LoggerFactory.getLogger(SpringbootApplication.class);
-
-    @Autowired
     private OfferRepository offerRepository;
 
     public OfferService(OfferRepository offerRepository) {
@@ -37,5 +34,20 @@ public class OfferService {
         if(offerRepository.findByUsername(username).isEmpty())
             return false;
         return true;
+    }
+
+    public Offer getOffer(String username) {
+        if (username == null)
+            return null;
+
+        List<Offer> userOffers = offerRepository.findByUsername(username);
+        if(userOffers.isEmpty())
+            return null;
+
+        return userOffers.get(0);
+    }
+
+    public void saveOrUpdateOffer(Offer offer) {
+        offerRepository.save(offer);
     }
 }

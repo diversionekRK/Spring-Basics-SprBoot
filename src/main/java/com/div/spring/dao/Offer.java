@@ -24,4 +24,8 @@ public class Offer {
     @ManyToOne
     @JoinColumn(name = "username")
     private User user;
+
+    public Offer() {
+        this.user = new User();
+    }
 }
