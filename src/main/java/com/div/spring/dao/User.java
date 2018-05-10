@@ -44,6 +44,15 @@ public class User {
     public User() {
     }
 
+    public User(String username, String password, String email, String name, boolean enabled, String authority) {
+        this.username = username;
+        this.password = password;
+        this.email = email;
+        this.name = name;
+        this.enabled = enabled;
+        this.authority = authority;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
