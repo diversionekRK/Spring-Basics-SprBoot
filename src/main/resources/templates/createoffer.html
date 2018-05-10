@@ -22,6 +22,10 @@
             <td class="label"></td>
             <td><input class="control" value="Save advert" type="submit"/></td>
         </tr>
+        <tr th:if="${offer.id != 0}">
+            <td class="label"></td>
+            <td><input class="control" value="Delete advert" type="submit" name="delete"/></td>
+        </tr>
     </table>
 </form>
 

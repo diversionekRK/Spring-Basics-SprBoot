@@ -37,7 +37,7 @@
 </div>
 
 <div th:if="${#authorization.expression('hasRole(''ROLE_ADMIN'')')}">
-    <p><a th:href="@{/login}">Log in</a></p>
+    <p><a th:href="@{/admin}">For admins only</a></p>
 </div>
 
 </body>

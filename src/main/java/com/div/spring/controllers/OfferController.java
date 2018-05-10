@@ -33,19 +33,12 @@ public class OfferController {
 
         Offer offer = null;
 
-//        if (principal.getName() != null) {
-//            String username = principal.getName();
-//
-//            offer = offerService.getOffer(username);
-//        }
-        String username = "testuser";
-        offer = offerService.getOffer(username);
-        log.info(offer.toString());
-
-        if(principal != null)
-            log.info("zalogowany");
-        else
-            log.info("niezalogowany");
+        if (principal != null) {
+            String username = principal.getName();
+            offer = offerService.getOffer(username);
+            if (offer != null)
+                log.info(offer.toString());
+        }
 
         if (offer == null)
             offer = new Offer();
@@ -62,17 +55,15 @@ public class OfferController {
             return "createoffer";
         }
 
-        if(delete == null) {
-            log.info(offer.toString());
-            String username = "testuser";
-            offer.getUser().setUsername(username);
-            //offerService.saveOrUpdateOffer(offer);
-
+        String username = principal.getName();
+        offer.getUser().setUsername(username);
+        if (delete == null) {
+            log.info("Save or update: " + offer.toString());
+            offerService.saveOrUpdateOffer(offer);
             return "offercreated";
-        }
-        else {
-            //offerService.delete(offer.getId());
-
+        } else {
+            log.info("Delete: " + offer.toString());
+            offerService.deleteOffer(offer);
             return "offerdeleted";
         }
     }

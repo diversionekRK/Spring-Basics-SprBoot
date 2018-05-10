@@ -15,7 +15,6 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 import org.springframework.security.provisioning.JdbcUserDetailsManager;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
-import org.thymeleaf.spring5.SpringTemplateEngine;
 
 import javax.sql.DataSource;
 
@@ -35,7 +34,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         //TO BE REFACTORED!!!
         http
                 .authorizeRequests()
-                .antMatchers("/", "/home", "/css/**", "/createoffer",
+                .antMatchers("/", "/home", "/css/**",
                         "/docreate", "/offercreated", "/offerdeleted").permitAll()
                 .anyRequest().authenticated()
                 .and()

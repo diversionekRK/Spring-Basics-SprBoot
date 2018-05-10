@@ -47,6 +47,10 @@ public class OfferService {
         return userOffers.get(0);
     }
 
+    public void deleteOffer(Offer offer) {
+        offerRepository.delete(offer);
+    }
+
     public void saveOrUpdateOffer(Offer offer) {
         offerRepository.save(offer);
     }
