@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>New account</title>
+</head>
+<body>
+
+<form id="userForm" th:action="@{/createaccount}" method="post" th:object="${user}">
+    <table class="formtable">
+        <tr>
+            <td>
+                <label for="username">Username</label>
+            </td>
+            <td>
+                <input name="username" id="username" th:field="*{username}"/>
+            </td>
+            <td>
+                <p th:if="${#fields.hasErrors('username')}" th:errors="*{username}">Invalid username</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label for="name">Name</label>
+            </td>
+            <td>
+                <input name="name" id="name" th:value="*{name}"/>
+            </td>
+            <td>
+                <p th:if="${#fields.hasErrors('name')}" th:errors="*{name}">Invalid name</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label for="email">Email</label>
+            </td>
+            <td>
+                <input type="email" name="email" id="email" th:value="*{email}"/>
+            </td>
+            <td>
+                <p th:if="${#fields.hasErrors('email')}" th:errors="*{email}">Invalid email</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label for="password">Password</label>
+            </td>
+            <td>
+                <input type="password" name="password" id="password"/>
+            </td>
+            <td>
+                <p th:if="${#fields.hasErrors('password')}" th:errors="*{password}">Invalid password</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label for="confirmpassword">Confirm password</label>
+            </td>
+            <td>
+                <input type="password" name="confirmpassword" id="confirmpassword"/>
+                <!--<p th:if="${#fields.hasErrors('password')}" th:errors="*{password}">Invalid password</p>-->
+            </td>
+        </tr>
+        <tr>
+            <td></td>
+            <td><input value="Create account" type="submit"/></td>
+        </tr>
+    </table>
+</form>
+
+</body>
+</html>

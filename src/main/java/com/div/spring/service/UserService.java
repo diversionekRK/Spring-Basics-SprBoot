@@ -25,7 +25,15 @@ public class UserService {
     public User save(User user) {
         String password = user.getPassword();
         user.setPassword(passwordEncoder.encode(password));
+        user.setAuthority("ROLE_USER");
+        user.setEnabled(true);
+
         return userRepository.save(user);
     }
 
+    public boolean exists(String username) {
+        if(userRepository.findByUsername(username) != null)
+            return true;
+        return false;
+    }
 }
