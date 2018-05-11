@@ -30,9 +30,9 @@ public class HomeController {
     public String home(Model model, Principal principal) {
 
         List<Offer> offers = offerService.getOffers();
-        for (Offer offer : offers) {
-            log.info(offer.toString());
-        }
+        offers.stream()
+                .forEach(o -> log.info(o.toString()));
+
         model.addAttribute("offers", offers);
 
         boolean hasOffer = false;
